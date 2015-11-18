@@ -1,0 +1,32 @@
+<package type="addon" name="mongodb-gridfs-storage" version="@VERSION@">
+  <title>MongoDB GridFS Storage</title>
+  <description>
+    This Nuxeo plugin provides an implementation of the BinaryManager
+    that replies on MongoDB GridFS.
+
+    The goal is to store Nuxeo Blobs directly inside GridFS.
+
+    This is particularly interesting when using MongoDB as the main
+    repository backend (using DBS) since this allows to have
+    Structures + Meta-data and the Binaries inside the same MongoDB
+    replicaSet.
+
+    After installation, some configuration steps must be taken in order
+    for this addon to be enabled and use the proper credentials.
+    Check the linked page for installation instructions.
+  </description>
+  <home-page>https://github.com/nuxeo/nuxeo-core-binarymanager-gridfs</home-page>
+  <platforms>
+    <platform>cap-@DISTRIB_VERSION@</platform>
+    <platform>cap-@DISTRIB_VERSION@-HF*</platform>
+  </platforms>
+  <hotreload-support>false</hotreload-support>
+  <supported>true</supported>
+  <require-terms-and-conditions-acceptance>true</require-terms-and-conditions-acceptance>
+  <production-state>production_ready</production-state>
+  <nuxeo-validation>nuxeo_certified</nuxeo-validation>
+  <vendor>Nuxeo</vendor>
+  <license>LGPL 2.1</license>
+  <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+  <visibility>MARKETPLACE</visibility>
+</package>
