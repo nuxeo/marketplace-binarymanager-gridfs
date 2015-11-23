@@ -22,6 +22,12 @@ This requires:
 
 See [nuxeo-core-binarymanager-gridfs README](https://github.com/nuxeo/nuxeo-core-binarymanager-gridfs) for more informations.
 
+# Specific Nuxeo Package Configuration
+
+You are able to use some dedicated configuration properties for using another server for GridFS. If you do not want to use them; the mongodb server is configured with the default one.
+
+See [default variables set with the Nuxeo Package](https://github.com/nuxeo/marketplace-binarymanager-gridfs/blob/master/marketplace/src/main/resources/install/templates/gridfsbinaries/nuxeo.defaults) for more informations.
+
 # Resources
 
 ## Reporting issues
