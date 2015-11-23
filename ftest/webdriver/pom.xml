@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>gridfs-blob-storage-webdriver-tests</artifactId>
-  <name>Nuxeo MongoDB GridFS Storage Marketplace - FTest</name>
+  <name>Nuxeo Mongo GridFS Storage Marketplace - FTest</name>
 
   <dependencies>
     <dependency>
