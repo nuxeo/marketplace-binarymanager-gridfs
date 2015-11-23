@@ -4,11 +4,6 @@
   <extension point="configuration" target="org.nuxeo.ecm.core.blob.BlobManager">
     <blobprovider name="default">
       <class>org.nuxeo.ecm.core.storage.mongodb.blob.GridFSBinaryManager</class>
-      <#if "${nuxeo.mp.gridfs.server}" != "">
-      <property name="server">${nuxeo.mp.gridfs.server}</property>
-      <property name="dbname">${nuxeo.mp.gridfs.dbname}</property>
-      <property name="bucket">${nuxeo.mp.gridfs.bucket}</property>
-      </#if>
     </blobprovider>
   </extension>
 </component>
