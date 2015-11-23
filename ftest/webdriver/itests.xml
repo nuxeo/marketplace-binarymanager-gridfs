@@ -14,7 +14,22 @@
 
   <property name="mp.install" value="file:${out.dir}/marketplace-${maven.project.version}.zip" />
 
-  <target name="prepare-gridfs-environment" depends="prepare-environment">
+  <target name="prepare-conf">
+    <antcall target="set-conf">
+      <param name="name" value="nuxeo.mongodb.server" />
+      <param name="value" value="${nuxeo.mongodb.server}" />
+    </antcall>
+    <antcall target="set-conf">
+      <param name="name" value="nuxeo.mongodb.dbname" />
+      <param name="value" value="${nuxeo.mongodb.dbname}" />
+    </antcall>
+    <antcall target="set-conf">
+      <param name="name" value="nuxeo.mongodb.gridfs.bucket" />
+      <param name="value" value="${nuxeo.mongodb.gridfs.bucket}" />
+    </antcall>
+  </target>
+
+  <target name="prepare-gridfs-environment" depends="prepare-environment,prepare-conf">
     <copy todir="${out.dir}">
       <artifact:file key="org.nuxeo.marketplace.gridfs-blob-storage:marketplace::zip" />
     </copy>
