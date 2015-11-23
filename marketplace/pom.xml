@@ -28,7 +28,6 @@
     <dependency>
       <groupId>org.nuxeo.ecm.core</groupId>
       <artifactId>nuxeo-core-binarymanager-gridfs</artifactId>
-      <version>8.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
