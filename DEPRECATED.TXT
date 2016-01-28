@@ -1,0 +1,3 @@
+marketplace-binarymanager-gridfs has been deprecated.
+
+Binary Manager GridFS has been moved to nuxeo-core-storage-mongodb module.
