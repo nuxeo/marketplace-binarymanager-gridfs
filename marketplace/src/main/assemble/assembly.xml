@@ -1,15 +1,15 @@
-<project name="nuxeo-azure-assembly" default="build" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
+<project name="nuxeo-gridfs-assembly" default="build" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
   <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build" />
   <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact" />
   <taskdef resource="net/sf/antcontrib/antlib.xml" />
 
-  <target name="build" description="Build Microsoft Azure Marketplace package">
+  <target name="build" description="Build Mongo GridFS Marketplace package">
     <property name="outdir" value="${maven.project.build.directory}" />
     <!-- Include your artifacts in the graph adding your groupId to groupPrefixes -->
     <artifact:nuxeo-expand includeTestScope="true" groupPrefixes="org.nuxeo" />
     <!-- For Nuxeo IDE being able to use that distribution as a SDK -->
-    <artifact:print output="${outdir}/artifacts-azure.properties" mode="sdk" />
-    <artifact:print output="${outdir}/test-artifacts-azure.properties" mode="sdk" scopes="test" />
+    <artifact:print output="${outdir}/artifacts-gridfs.properties" mode="sdk" />
+    <artifact:print output="${outdir}/test-artifacts-gridfs.properties" mode="sdk" scopes="test" />
     <!-- Prints the graph for debugging purpose -->
     <artifact:print output="${outdir}/dependency-tree.log" />
     <tstamp />
@@ -25,8 +25,8 @@
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
-    <copy file="${outdir}/artifacts-azure.properties" todir="${outdir}/marketplace/install" />
-    <copy file="${outdir}/test-artifacts-azure.properties" todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/artifacts-gridfs.properties" todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/test-artifacts-gridfs.properties" todir="${outdir}/marketplace/install" />
 
     <!-- Base distribution NXR -->
     <copy todir="${outdir}">
@@ -64,12 +64,12 @@
                 file2="${outdir}/nuxeo-distribution-cap-${nuxeo.distribution.version}.zip"
                 includesfile="${outdir}/includes"
                 excludesfile="${outdir}/excludesfile"
-                patternsetid="azure.versus.cap"
+                patternsetid="gridfs.versus.cap"
                 ignoreContent="false"
                 ignoreContentPattern=".*\.jar$">
     </nx:zipdiff>
     <unzip src="${outdir}/nxr-${maven.project.version}.zip" dest="${outdir}/marketplace/install">
-      <patternset refid="azure.versus.cap" />
+      <patternset refid="gridfs.versus.cap" />
     </unzip>
 
     <!-- Generate install.xml content -->
@@ -97,9 +97,9 @@
 
     <var name="install.properties"
          value="${line.separator}
-  &lt;copy file=&quot;${package.root}/install/artifacts-azure.properties&quot;${line.separator}
+  &lt;copy file=&quot;${package.root}/install/artifacts-gridfs.properties&quot;${line.separator}
     todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
-  &lt;copy file=&quot;${package.root}/install/test-artifacts-azure.properties&quot;${line.separator}
+  &lt;copy file=&quot;${package.root}/install/test-artifacts-gridfs.properties&quot;${line.separator}
     todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;" />
 
     <var name="install.templates" value="" />
@@ -109,7 +109,7 @@
         <var name="install.templates"
              value="${line.separator}
   &lt;copy dir=&quot;${package.root}/install/templates&quot; todir=&quot;${env.templates}&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
-  &lt;config addtemplate=&quot;azurebinaries&quot; /&gt;${line.separator}" />
+  &lt;config addtemplate=&quot;gridfsbinaries&quot; /&gt;${line.separator}" />
       </then>
     </if>
 
